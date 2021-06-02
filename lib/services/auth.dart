@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firefighter/services/database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -32,7 +33,33 @@ class FirebaseAuthProvider extends ChangeNotifier {
       password: password,
     );
 
-    if (userCredential.user != null) {}
+    if (userCredential.user != null) {
+      switch (userType) {
+        case 'Spot Engineer':
+          await DatabaseService.addEngineers(
+            id: userCredential.user!.uid,
+            name: name,
+            email: email,
+          );
+          break;
+        case 'Dashboard Admin':
+          await DatabaseService.addAdmin(
+            id: userCredential.user!.uid,
+            name: name,
+            email: email,
+          );
+          break;
+        case 'End User':
+          await DatabaseService.addEndUser(
+            id: userCredential.user!.uid,
+            name: name,
+            email: email,
+          );
+          break;
+        default:
+          debugPrint('Wrong type of user');
+      }
+    }
   }
 
   Future<void> signOut() async {

@@ -20,8 +20,6 @@ class SignUp extends HookWidget {
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
 
-    final _branch = useState<String>('Select branch');
-
     final _userType = useState(UserType.noDetail);
 
     final _emailIdErrorMessage = useState<String>('');
@@ -38,6 +36,7 @@ class SignUp extends HookWidget {
 
     Future<void> _signUp(BuildContext context) async {
       try {
+        print('started');
         _isLoading.value = true;
 
         await _auth.signUpWithEmail(
@@ -231,7 +230,6 @@ class SignUp extends HookWidget {
             if (_validityEmail.value &&
                 _validityPassword.value &&
                 _validityName.value &&
-                _branch.value != 'Select branch' &&
                 _userType != UserType.noDetail) {
               await _signUp(context);
             }
