@@ -20,7 +20,7 @@ class Machine {
   });
 
   factory Machine.fromDocumentSnapshot(DocumentSnapshot snapshot) {
-    final Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+    final Map<String, dynamic> data = snapshot.data()! as Map<String, dynamic>;
 
     return Machine(
       id: data['id'].toString(),

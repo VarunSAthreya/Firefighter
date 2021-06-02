@@ -16,7 +16,7 @@ class Users {
   });
 
   factory Users.fromDocumentSnapshot(DocumentSnapshot snapshot) {
-    final Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+    final Map<String, dynamic> data = snapshot.data()! as Map<String, dynamic>;
 
     return Users(
       id: data['id'].toString(),

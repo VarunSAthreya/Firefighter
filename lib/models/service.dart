@@ -18,7 +18,7 @@ class Services {
   });
 
   factory Services.fromDocumentSnapshot(DocumentSnapshot snapshot) {
-    final Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+    final Map<String, dynamic> data = snapshot.data()! as Map<String, dynamic>;
 
     return Services(
       id: data['id'].toString(),

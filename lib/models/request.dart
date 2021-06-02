@@ -19,7 +19,7 @@ class Request {
     required this.isSolved,
   });
   factory Request.fromDocumentSnapshot(DocumentSnapshot snapshot) {
-    final Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+    final Map<String, dynamic> data = snapshot.data()! as Map<String, dynamic>;
 
     return Request(
       id: data['id'].toString(),

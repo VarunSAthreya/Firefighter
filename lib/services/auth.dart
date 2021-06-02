@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firefighter/services/database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'database.dart';
 
 final authProvider = ChangeNotifierProvider<FirebaseAuthProvider>(
     (ref) => FirebaseAuthProvider());

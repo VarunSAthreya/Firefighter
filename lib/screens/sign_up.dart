@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firefighter/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../components/body_container.dart';
+import '../services/auth.dart';
 import '../widgets/custom_dropdown.dart';
 import '../widgets/custom_textfield.dart';
 import 'sign_in.dart';
@@ -36,7 +36,6 @@ class SignUp extends HookWidget {
 
     Future<void> _signUp(BuildContext context) async {
       try {
-        print('started');
         _isLoading.value = true;
 
         await _auth.signUpWithEmail(
@@ -230,7 +229,7 @@ class SignUp extends HookWidget {
             if (_validityEmail.value &&
                 _validityPassword.value &&
                 _validityName.value &&
-                _userType != UserType.noDetail) {
+                _userType.value != UserType.noDetail) {
               await _signUp(context);
             }
           },

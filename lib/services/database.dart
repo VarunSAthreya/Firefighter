@@ -1,15 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firefighter/models/machine.dart';
-import 'package:firefighter/models/request.dart';
-import 'package:firefighter/models/user.dart';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
+
+import '../models/machine.dart';
+import '../models/request.dart';
+import '../models/user.dart';
 
 class DatabaseService {
   DatabaseService._();
 
   //   Initialize uuid
-  static final Uuid _uuid = Uuid(options: {'grng': UuidUtil.cryptoRNG});
+  static const Uuid _uuid = Uuid(options: {'grng': UuidUtil.cryptoRNG});
 
   // Cloud firestore collection path
   static final CollectionReference _usersRef =
