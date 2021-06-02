@@ -36,24 +36,27 @@ class FirebaseAuthProvider extends ChangeNotifier {
     if (userCredential.user != null) {
       switch (userType) {
         case 'Spot Engineer':
-          await DatabaseService.addEngineers(
+          await DatabaseService.addUsers(
             id: userCredential.user!.uid,
             name: name,
             email: email,
+            type: 'enginner',
           );
           break;
         case 'Dashboard Admin':
-          await DatabaseService.addAdmin(
+          await DatabaseService.addUsers(
             id: userCredential.user!.uid,
             name: name,
             email: email,
+            type: 'admin',
           );
           break;
         case 'End User':
-          await DatabaseService.addEndUser(
+          await DatabaseService.addUsers(
             id: userCredential.user!.uid,
             name: name,
             email: email,
+            type: 'user',
           );
           break;
         default:
