@@ -16,9 +16,9 @@ class EndUser {
     final Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
 
     return EndUser(
-      id: data['id'] as String,
-      name: data['name'] as String,
-      email: data['email'] as String,
+      id: data['id'].toString(),
+      name: data['name'].toString(),
+      email: data['email'].toString(),
       requests: data['requests'] as List,
     );
   }
