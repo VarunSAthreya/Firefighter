@@ -6,8 +6,8 @@ class Machine {
   final String endUserId;
   final String type;
   final List services;
-  final DateTime lastServiced;
-  final DateTime futureService;
+  final DateTime? lastServiced;
+  final DateTime? futureService;
 
   Machine({
     required this.id,
@@ -28,9 +28,12 @@ class Machine {
       endUserId: data['end_user_id'].toString(),
       type: data['type'].toString(),
       services: data['services'] as List,
-      lastServiced: DateTime.parse(data['last_serviced'].toDate().toString()),
-      futureService:
-          DateTime.parse(data['future_serviced'].toDate().toString()),
+      lastServiced: data['last_serviced'] == null
+          ? null
+          : DateTime.parse(data['last_serviced'].toDate().toString()),
+      futureService: data['future_serviced'] == null
+          ? null
+          : DateTime.parse(data['future_serviced'].toDate().toString()),
     );
   }
   static List<Machine> fromQuerySnapshot(
@@ -43,9 +46,12 @@ class Machine {
         endUserId: doc['end_user_id'].toString(),
         type: doc['type'].toString(),
         services: doc['services'] as List,
-        lastServiced: DateTime.parse(doc['last_serviced'].toDate().toString()),
-        futureService:
-            DateTime.parse(doc['future_serviced'].toDate().toString()),
+        lastServiced: doc['last_serviced'] == null
+            ? null
+            : DateTime.parse(doc['last_serviced'].toDate().toString()),
+        futureService: doc['future_serviced'] == null
+            ? null
+            : DateTime.parse(doc['future_serviced'].toDate().toString()),
       );
     }).toList();
   }

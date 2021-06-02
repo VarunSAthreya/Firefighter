@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firefighter/models/machine.dart';
 import 'package:firefighter/models/request.dart';
 import 'package:firefighter/models/user.dart';
 import 'package:uuid/uuid.dart';
@@ -13,8 +14,12 @@ class DatabaseService {
   // Cloud firestore collection path
   static final CollectionReference _usersRef =
       FirebaseFirestore.instance.collection('users');
+
   static final CollectionReference _requestsRef =
-      FirebaseFirestore.instance.collection('users');
+      FirebaseFirestore.instance.collection('requests');
+
+  static final CollectionReference _machinesRef =
+      FirebaseFirestore.instance.collection('machines');
 
   // Users realted functions
 
@@ -85,5 +90,53 @@ class DatabaseService {
     required dynamic value,
   }) async {
     await _requestsRef.doc(id).update({key: value});
+  }
+
+  static Future<void> deleteRequest(
+      {required String id, required String uid}) async {
+    await _requestsRef.doc(id).delete();
+    await _usersRef.doc(uid).update({
+      "actions": FieldValue.arrayRemove([id]),
+    });
+  }
+
+  //   Machines related queries
+
+  static Future<void> createMachines({
+    required String address,
+    required String endUserId,
+    required String type,
+  }) async {
+    final String id = _uuid.v4();
+    await _machinesRef.doc(id).set({
+      "id": id,
+      "address": address,
+      "end_user_id": endUserId,
+      "type": type,
+      "services": <String>[],
+      'last_serviced': null,
+      'future_serviced': null,
+    });
+  }
+
+  static Stream<List<Machine>> get allMachines =>
+      _machinesRef.snapshots().map(Machine.fromQuerySnapshot);
+
+  static Future<Machine> getMachine({required String id}) async {
+    final DocumentSnapshot snapshot = await _machinesRef.doc(id).get();
+    return Machine.fromDocumentSnapshot(snapshot);
+  }
+
+  static Future<void> updateMachines({
+    required String id,
+    required String key,
+    required dynamic value,
+  }) async {
+    await _machinesRef.doc(id).update({key: value});
+  }
+
+  static Future<void> deleteMachines(
+      {required String id, required String uid}) async {
+    await _machinesRef.doc(id).delete();
   }
 }
