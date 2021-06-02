@@ -7,7 +7,7 @@ class Request {
   final String title;
   final String description;
   final DateTime createdAt;
-  final bool solved;
+  final bool isSolved;
 
   Request({
     required this.id,
@@ -16,7 +16,7 @@ class Request {
     required this.title,
     required this.description,
     required this.createdAt,
-    required this.solved,
+    required this.isSolved,
   });
   factory Request.fromDocumentSnapshot(DocumentSnapshot snapshot) {
     final Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
@@ -28,7 +28,7 @@ class Request {
       title: data['title'].toString(),
       description: data['description'].toString(),
       createdAt: DateTime.parse(data['created_at'].toDate().toString()),
-      solved: data['solved'] as bool,
+      isSolved: data['is_solved'] as bool,
     );
   }
 
@@ -43,7 +43,7 @@ class Request {
         title: doc['title'].toString(),
         description: doc['description'].toString(),
         createdAt: DateTime.parse(doc['created_at'].toDate().toString()),
-        solved: doc['solved'] as bool,
+        isSolved: doc['is_solved'] as bool,
       );
     }).toList();
   }
