@@ -33,4 +33,20 @@ class Machine {
           DateTime.parse(data['future_serviced'].toDate().toString()),
     );
   }
+  static List<Machine> fromQuerySnapshot(
+    QuerySnapshot snapshot,
+  ) {
+    return snapshot.docs.map((doc) {
+      return Machine(
+        id: doc['id'].toString(),
+        address: doc['address'].toString(),
+        endUserId: doc['end_user_id'].toString(),
+        type: doc['type'].toString(),
+        services: doc['services'] as List,
+        lastServiced: DateTime.parse(doc['last_serviced'].toDate().toString()),
+        futureService:
+            DateTime.parse(doc['future_serviced'].toDate().toString()),
+      );
+    }).toList();
+  }
 }
