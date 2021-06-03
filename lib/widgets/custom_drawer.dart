@@ -1,3 +1,4 @@
+import 'package:firefighter/screens/spot_list.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -41,6 +42,11 @@ class CustomDrawer extends StatelessWidget {
               title: 'Add Request',
               iconData: FontAwesomeIcons.plus,
               onTap: () => Navigator.pushNamed(context, AddRequest.routeName),
+            ),
+            _DrawerTile(
+              title: 'All Spots',
+              iconData: FontAwesomeIcons.locationArrow,
+              onTap: () => Navigator.pushNamed(context, SpotList.routeName),
             ),
           ],
         ),

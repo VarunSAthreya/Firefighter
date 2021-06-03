@@ -1,4 +1,5 @@
 import 'package:firefighter/screens/add_request.dart';
+import 'package:firefighter/screens/spot_list.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/add_machine.dart';
@@ -18,4 +19,5 @@ final Map<String, WidgetBuilder> routes = {
   AddSpot.routeName: (context) => AddSpot(),
   AddMachine.routeName: (context) => AddMachine(),
   AddRequest.routeName: (context) => AddRequest(),
+  SpotList.routeName: (context) => SpotList(),
 };
