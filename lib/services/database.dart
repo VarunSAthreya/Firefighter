@@ -136,6 +136,12 @@ class DatabaseService {
   static Stream<List<Machine>> get allMachines =>
       _machinesRef.snapshots().map(Machine.fromQuerySnapshot);
 
+  static Stream<List<Machine>> getSpotMachines({required String spotId}) =>
+      _machinesRef
+          .where('spot_id', isEqualTo: spotId)
+          .snapshots()
+          .map(Machine.fromQuerySnapshot);
+
   static Future<Machine> getMachine({required String id}) async {
     final DocumentSnapshot snapshot = await _machinesRef.doc(id).get();
     return Machine.fromDocumentSnapshot(snapshot);

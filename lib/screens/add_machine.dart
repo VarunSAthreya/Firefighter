@@ -119,7 +119,7 @@ class AddMachine extends HookWidget {
                         return ListView.builder(
                           physics: const BouncingScrollPhysics(),
                           itemBuilder: (context, index) {
-                            Spot spot = snapshot.data[index] as Spot;
+                            final Spot spot = snapshot.data[index] as Spot;
                             return ListTile(
                               onTap: () => _spotId.value = spot.id,
                               hoverColor: Theme.of(context).accentColor,

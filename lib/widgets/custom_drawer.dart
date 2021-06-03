@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../screens/add_machine.dart';
+import '../screens/add_request.dart';
 import '../screens/add_spot.dart';
 import '../screens/home.dart';
 
@@ -35,6 +36,11 @@ class CustomDrawer extends StatelessWidget {
               title: 'Add Machine',
               iconData: FontAwesomeIcons.plus,
               onTap: () => Navigator.pushNamed(context, AddMachine.routeName),
+            ),
+            _DrawerTile(
+              title: 'Add Request',
+              iconData: FontAwesomeIcons.plus,
+              onTap: () => Navigator.pushNamed(context, AddRequest.routeName),
             ),
           ],
         ),
