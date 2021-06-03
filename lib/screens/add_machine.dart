@@ -10,7 +10,7 @@ import '../widgets/custom_drawer.dart';
 import '../widgets/custom_dropdown.dart';
 import '../widgets/custom_textfield.dart';
 import '../widgets/error_message.dart';
-import 'show_barcode.dart';
+import 'create_qr.dart';
 
 class AddMachine extends HookWidget {
   static const routeName = '/add_machine';
