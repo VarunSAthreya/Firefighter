@@ -98,6 +98,20 @@ class DatabaseService {
     return Request.fromDocumentSnapshot(snapshot);
   }
 
+  static Future<void> finishRequest({
+    required String id,
+    required String uid,
+  }) async {
+    await _requestsRef.doc(id).update({'is_solved': true});
+    try {
+      await _usersRef.doc(uid).update({
+        'actions': FieldValue.arrayRemove([id]),
+      });
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
   static Future<void> assignRequest({
     required String id,
     required String uid,
