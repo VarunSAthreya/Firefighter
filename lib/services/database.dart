@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firefighter/models/spot.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
@@ -21,6 +23,9 @@ class DatabaseService {
 
   static final CollectionReference _machinesRef =
       FirebaseFirestore.instance.collection('machines');
+
+  static final CollectionReference _spotsRef =
+      FirebaseFirestore.instance.collection('spots');
 
   // Users realted functions
 
@@ -138,8 +143,41 @@ class DatabaseService {
     await _machinesRef.doc(id).update({key: value});
   }
 
-  static Future<void> deleteMachines(
-      {required String id, required String uid}) async {
+  static Future<void> deleteMachines({required String id}) async {
     await _machinesRef.doc(id).delete();
+  }
+  //   Spots related queries
+
+  static Future<void> createSpots({
+    required LatLng location,
+    required String name,
+  }) async {
+    final String id = _uuid.v4();
+    await _spotsRef.doc(id).set({
+      "id": id,
+      "name": name,
+      "machine_id": <String>[],
+      "location": GeoPoint(location.latitude, location.longitude),
+    });
+  }
+
+  static Stream<List<Spot>> get allspots =>
+      _spotsRef.snapshots().map(Spot.fromQuerySnapshot);
+
+  static Future<Spot> getSpot({required String id}) async {
+    final DocumentSnapshot snapshot = await _spotsRef.doc(id).get();
+    return Spot.fromDocumentSnapshot(snapshot);
+  }
+
+  static Future<void> updatespots({
+    required String id,
+    required String key,
+    required dynamic value,
+  }) async {
+    await _spotsRef.doc(id).update({key: value});
+  }
+
+  static Future<void> deletespots({required String id}) async {
+    await _spotsRef.doc(id).delete();
   }
 }

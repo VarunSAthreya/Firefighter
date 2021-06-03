@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../services/database.dart';
+import 'home.dart';
+
 class MapsLocation extends StatefulWidget {
   static const routeName = '/map';
-  const MapsLocation({Key? key}) : super(key: key);
+  final String spotName;
+  const MapsLocation({Key? key, required this.spotName}) : super(key: key);
 
   @override
   _MapsLocationState createState() => _MapsLocationState();
@@ -71,7 +74,6 @@ class _MapsLocationState extends State<MapsLocation> {
           target: _currentLatLng,
           zoom: 11.0,
         ),
-        // trafficEnabled: true,
         markers: _createMarker(),
         onTap: (argument) => _updateMarker(argument),
         onLongPress: (argument) => _updateMarker(argument),
@@ -81,10 +83,16 @@ class _MapsLocationState extends State<MapsLocation> {
           const SizedBox(width: 40),
           FloatingActionButton(
             onPressed: () async {
-              List<Placemark> placemarks = await placemarkFromCoordinates(
-                  _currentLatLng.latitude, _currentLatLng.longitude);
-              print(placemarks.toString());
-              //   Navigator.pop(context);
+              //   List<Placemark> placemarks = await placemarkFromCoordinates(
+              //       _currentLatLng.latitude, _currentLatLng.longitude);
+              //   print(placemarks.toString());
+              try {
+                await DatabaseService.createSpots(
+                    location: _currentLatLng, name: widget.spotName);
+                Navigator.pushReplacementNamed(context, HomePage.routeName);
+              } catch (e) {
+                debugPrint(e.toString());
+              }
             },
             child: const Icon(CupertinoIcons.forward),
           ),
