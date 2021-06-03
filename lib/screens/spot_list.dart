@@ -1,4 +1,3 @@
-import 'package:firefighter/screens/spot_details.dart';
 import 'package:flutter/material.dart';
 
 import '../models/spot.dart';
@@ -6,6 +5,7 @@ import '../services/database.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/error_message.dart';
+import 'spot_details.dart';
 
 class SpotList extends StatelessWidget {
   static const routeName = '/spot_list';

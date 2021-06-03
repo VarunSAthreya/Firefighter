@@ -1,13 +1,13 @@
-import 'package:firefighter/screens/add_request.dart';
-import 'package:firefighter/screens/spot_list.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/add_machine.dart';
+import 'screens/add_request.dart';
 import 'screens/add_spot.dart';
 import 'screens/forgot_password.dart';
 import 'screens/home.dart';
 import 'screens/sign_in.dart';
 import 'screens/sign_up.dart';
+import 'screens/spot_list.dart';
 import 'screens/verify_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
