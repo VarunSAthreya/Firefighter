@@ -24,6 +24,7 @@ class RequestDetails extends HookWidget {
     Future<void> getDetails() async {
       endUser = await DatabaseService.getUser(id: request.endUserId);
       machine = await DatabaseService.getMachine(id: request.machineId);
+      spot = await DatabaseService.getSpot(id: request.spotId);
       _isLoading.value = false;
     }
 

@@ -23,7 +23,7 @@ class Spot {
       name: data['name'].toString(),
       location: LatLng(
         double.parse(data['location'].latitude.toString()),
-        double.parse(data['location'].longitde.toString()),
+        double.parse(data['location'].longitude.toString()),
       ),
     );
   }
@@ -37,7 +37,7 @@ class Spot {
         machineId: doc['machine_id'] as List,
         location: LatLng(
           double.parse(doc['location'].latitude.toString()),
-          double.parse(doc['location'].longitde.toString()),
+          double.parse(doc['location'].longitude.toString()),
         ),
       );
     }).toList();
