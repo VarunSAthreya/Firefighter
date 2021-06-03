@@ -1,10 +1,9 @@
-import 'package:firefighter/models/request.dart';
-import 'package:firefighter/screens/request_details.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../constants.dart';
 import '../models/request.dart';
+import '../screens/request_details.dart';
 
 class RequestCard extends StatelessWidget {
   final Request request;

@@ -1,7 +1,7 @@
-import 'package:firefighter/screens/add_machine.dart';
-import 'package:firefighter/screens/add_spot.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/add_machine.dart';
+import 'screens/add_spot.dart';
 import 'screens/forgot_password.dart';
 import 'screens/home.dart';
 import 'screens/sign_in.dart';

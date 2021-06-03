@@ -1,7 +1,7 @@
-import 'package:firefighter/screens/add_machine.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../screens/add_machine.dart';
 import '../screens/add_spot.dart';
 import '../screens/home.dart';
 

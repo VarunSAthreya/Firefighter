@@ -1,16 +1,16 @@
-import 'package:firefighter/models/spot.dart';
-import 'package:firefighter/screens/show_barcode.dart';
-import 'package:firefighter/services/database.dart';
-import 'package:firefighter/widgets/custom_dropdown.dart';
-import 'package:firefighter/widgets/custom_textfield.dart';
-import 'package:firefighter/widgets/error_message.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../models/spot.dart';
+import '../services/database.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_drawer.dart';
+import '../widgets/custom_dropdown.dart';
+import '../widgets/custom_textfield.dart';
+import '../widgets/error_message.dart';
+import 'show_barcode.dart';
 
 class AddMachine extends HookWidget {
   static const routeName = '/add_machine';

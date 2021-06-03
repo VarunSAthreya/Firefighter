@@ -1,10 +1,11 @@
-import 'package:firefighter/screens/maps.dart';
-import 'package:firefighter/widgets/custom_appbar.dart';
-import 'package:firefighter/widgets/custom_drawer.dart';
-import 'package:firefighter/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../widgets/custom_appbar.dart';
+import '../widgets/custom_drawer.dart';
+import '../widgets/custom_textfield.dart';
+import 'maps.dart';
 
 class AddSpot extends HookWidget {
   static const String routeName = '/add_spot';

@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firefighter/models/spot.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:uuid/uuid.dart';
 import 'package:uuid/uuid_util.dart';
 
 import '../models/machine.dart';
 import '../models/request.dart';
+import '../models/spot.dart';
 import '../models/user.dart';
 
 class DatabaseService {
