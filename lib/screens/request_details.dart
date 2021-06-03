@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:geocoding/geocoding.dart';
 
 import '../constants.dart';
 import '../models/machine.dart';
@@ -17,14 +18,17 @@ class RequestDetails extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final _isLoading = useState<bool>(true);
-    late final Users endUser;
-    late final Machine machine;
-    late final Spot spot;
+    final endUser = useState<Users?>(null);
+    final machine = useState<Machine?>(null);
+    final spot = useState<Spot?>(null);
+    final placemarks = useState<List<Placemark>?>(null);
 
     Future<void> getDetails() async {
-      endUser = await DatabaseService.getUser(id: request.endUserId);
-      machine = await DatabaseService.getMachine(id: request.machineId);
-      spot = await DatabaseService.getSpot(id: request.spotId);
+      endUser.value = await DatabaseService.getUser(id: request.endUserId);
+      machine.value = await DatabaseService.getMachine(id: request.machineId);
+      spot.value = await DatabaseService.getSpot(id: request.spotId);
+      placemarks.value = await placemarkFromCoordinates(
+          spot.value!.location.latitude, spot.value!.location.longitude);
       _isLoading.value = false;
     }
 
@@ -90,7 +94,55 @@ class RequestDetails extends HookWidget {
                         textScaleFactor: 1.4,
                       ),
                       const SizedBox(height: 20),
-                      //   TODO: display spot and other details
+                      Text(
+                        'Spot Name: ${spot.value!.name}',
+                        softWrap: true,
+                        textAlign: TextAlign.center,
+                        textScaleFactor: 1.2,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Spot Address: \n ${placemarks.value![0]}',
+                        softWrap: true,
+                        textScaleFactor: 1,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Machine Name: ${machine.value!.name}',
+                        softWrap: true,
+                        textAlign: TextAlign.center,
+                        textScaleFactor: 1.2,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Machine type: ${machine.value!.type}',
+                        softWrap: true,
+                        textAlign: TextAlign.center,
+                        textScaleFactor: 1.2,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Machine location: ${machine.value!.address}',
+                        softWrap: true,
+                        textAlign: TextAlign.center,
+                        textScaleFactor: 1.2,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Machine Total services: ${machine.value!.services.length}',
+                        softWrap: true,
+                        textAlign: TextAlign.center,
+                        textScaleFactor: 1.1,
+                      ),
+                      if (machine.value!.lastServiced != null) ...[
+                        const SizedBox(height: 20),
+                        Text(
+                          'Machine previous service: ${dateFormat.format(machine.value!.lastServiced!)}',
+                          softWrap: true,
+                          textAlign: TextAlign.center,
+                          textScaleFactor: 1.2,
+                        ),
+                      ]
                     ],
                   ),
                 ),
