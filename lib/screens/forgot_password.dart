@@ -13,8 +13,6 @@ class ForgotPassword extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
     final _emailController = useTextEditingController();
 
     final _validityEmail = useState<bool>(true);
@@ -116,17 +114,15 @@ class ForgotPassword extends HookWidget {
         margin: const EdgeInsets.only(top: 50.0, bottom: 30.0),
         height: MediaQuery.of(context).size.height * 0.2,
         decoration: const BoxDecoration(
-          shape: BoxShape.circle,
           image: DecorationImage(
             image: AssetImage('assets/images/logo.png'),
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fitWidth,
           ),
         ),
       );
     }
 
     return Scaffold(
-      key: _scaffoldKey,
       body: BodyContainer(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

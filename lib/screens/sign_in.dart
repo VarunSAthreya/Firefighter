@@ -18,8 +18,6 @@ class SignIn extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
     final _emailController = useTextEditingController();
     final _passwordController = useTextEditingController();
 
@@ -236,7 +234,6 @@ class SignIn extends HookWidget {
     return _isLoading.value
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
-            key: _scaffoldKey,
             body: BodyContainer(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
