@@ -23,6 +23,12 @@ class CustomDrawer extends StatelessWidget {
               onTap: () =>
                   Navigator.pushReplacementNamed(context, HomePage.routeName),
             ),
+            _DrawerTile(
+              title: 'Add Machine',
+              iconData: FontAwesomeIcons.plus,
+              onTap: () =>
+                  Navigator.pushReplacementNamed(context, HomePage.routeName),
+            ),
           ],
         ),
       ),

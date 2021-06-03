@@ -1,4 +1,5 @@
 import 'package:firefighter/models/request.dart';
+import 'package:firefighter/screens/request_details.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -13,12 +14,14 @@ class RequestCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      //   onTap: () => Navigator.push<RequestScreen>(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) => RequestScreen(Request: Request),
-      //     ),
-      //   ),
+      onTap: () => Navigator.push<RequestDetails>(
+        context,
+        MaterialPageRoute(
+          builder: (context) => RequestDetails(
+            request: request,
+          ),
+        ),
+      ),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         padding: const EdgeInsets.all(15),

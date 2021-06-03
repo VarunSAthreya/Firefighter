@@ -57,6 +57,7 @@ class DatabaseService {
   static Future<void> createRequest({
     required String machineId,
     required String endUserId,
+    required String spotId,
     required String title,
     required String description,
   }) async {
@@ -68,7 +69,8 @@ class DatabaseService {
       "title": title,
       "description": description,
       'created_at': Timestamp.now(),
-      'is_solved': false
+      'is_solved': false,
+      'spot_id': spotId,
     });
     await _usersRef.doc(endUserId).update({
       "actions": FieldValue.arrayUnion([id]),
