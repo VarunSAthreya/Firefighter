@@ -1,3 +1,4 @@
+import 'package:firefighter/screens/scan_qr.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -47,6 +48,11 @@ class CustomDrawer extends StatelessWidget {
               title: 'All Spots',
               iconData: FontAwesomeIcons.locationArrow,
               onTap: () => Navigator.pushNamed(context, SpotList.routeName),
+            ),
+            _DrawerTile(
+              title: 'Scan QR',
+              iconData: FontAwesomeIcons.qrcode,
+              onTap: () => Navigator.pushNamed(context, QRScanPage.routeName),
             ),
           ],
         ),

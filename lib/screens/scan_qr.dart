@@ -1,8 +1,13 @@
+import 'package:firefighter/models/machine.dart';
+import 'package:firefighter/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
+import 'machine_details.dart';
+
 class QRScanPage extends StatefulWidget {
+  static const routeName = '/scan_qr';
   @override
   State<StatefulWidget> createState() => _QRScanPageState();
 }
@@ -23,17 +28,16 @@ class _QRScanPageState extends State<QRScanPage> {
                 'Scan Result',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.white54,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 8),
               Text(
                 qrCode,
+                textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontSize: 28,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
                 ),
               ),
               const SizedBox(height: 72),
@@ -57,11 +61,23 @@ class _QRScanPageState extends State<QRScanPage> {
 
       if (!mounted) return;
 
-      setState(() {
+      setState(() async {
         this.qrCode = qrCode;
+        debugPrint(qrCode);
+        final Machine machine = await DatabaseService.getMachine(id: qrCode);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute<MachineDetails>(
+            builder: (context) => MachineDetails(
+              machine: machine,
+            ),
+          ),
+        );
       });
     } on PlatformException {
       qrCode = 'Failed to get platform version.';
+    } catch (e) {
+      debugPrint('Error $e');
     }
   }
 }
