@@ -41,7 +41,7 @@ class FirebaseAuthProvider extends ChangeNotifier {
             id: userCredential.user!.uid,
             name: name,
             email: email,
-            type: 'enginner',
+            type: 'engineer',
           );
           break;
         case 'Dashboard Admin':

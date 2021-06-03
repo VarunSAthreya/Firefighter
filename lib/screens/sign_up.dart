@@ -136,7 +136,7 @@ class SignUp extends HookWidget {
           CustomDropdown(
             hint: _userType.value,
             list: const [
-              UserType.enginnering,
+              UserType.engineering,
               UserType.admin,
               UserType.user,
             ],
@@ -268,7 +268,7 @@ class SignUp extends HookWidget {
 
 mixin UserType {
   static const String noDetail = 'Select User Type';
-  static const String enginnering = 'Spot Engineer';
+  static const String engineering = 'Spot Engineer';
   static const String admin = 'Dashboard Admin';
   static const String user = 'End User';
 }

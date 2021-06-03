@@ -58,7 +58,7 @@ class DatabaseService {
   }
 
   static Stream<List<Users>> get engineers => _usersRef
-      .where('type', isEqualTo: 'enginner')
+      .where('type', isEqualTo: 'engineer')
       .snapshots()
       .map(Users.fromQuerySnapshot);
 
