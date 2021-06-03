@@ -24,7 +24,7 @@ class DatabaseService {
 
   // Users realted functions
 
-  static Future<void> addUsers({
+  static Future<void> addUser({
     required String id,
     required String name,
     required String email,
@@ -39,7 +39,7 @@ class DatabaseService {
     });
   }
 
-  static Future<void> updateUsers({
+  static Future<void> updateUser({
     required String id,
     required String key,
     required dynamic value,
@@ -47,7 +47,7 @@ class DatabaseService {
     await _usersRef.doc(id).update({key: value});
   }
 
-  static Future<Users> getUsers({required String id}) async {
+  static Future<Users> getUser({required String id}) async {
     final DocumentSnapshot snapshot = await _usersRef.doc(id).get();
     return Users.fromDocumentSnapshot(snapshot);
   }

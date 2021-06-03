@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firefighter/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,7 +10,6 @@ import '../services/auth.dart';
 import '../widgets/custom_dropdown.dart';
 import '../widgets/custom_textfield.dart';
 import 'sign_in.dart';
-import 'verify_screen.dart';
 
 class SignUp extends HookWidget {
   static const String routeName = '/signUp';
@@ -45,7 +45,7 @@ class SignUp extends HookWidget {
           userType: _userType.value,
         );
 
-        Navigator.pushReplacementNamed(context, VerifyScreen.routeName);
+        Navigator.pushReplacementNamed(context, HomePage.routeName);
       } on FirebaseAuthException catch (e) {
         switch (e.code) {
           case 'email-already-in-use':

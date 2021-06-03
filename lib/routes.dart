@@ -1,3 +1,4 @@
+import 'package:firefighter/screens/home.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/forgot_password.dart';
@@ -10,4 +11,5 @@ final Map<String, WidgetBuilder> routes = {
   SignUp.routeName: (context) => SignUp(),
   VerifyScreen.routeName: (context) => VerifyScreen(),
   ForgotPassword.routeName: (context) => ForgotPassword(),
+  HomePage.routeName: (context) => HomePage(),
 };

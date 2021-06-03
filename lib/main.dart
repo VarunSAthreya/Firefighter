@@ -5,6 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'routes.dart';
+import 'screens/home.dart';
 import 'screens/sign_in.dart';
 import 'services/auth.dart';
 
@@ -56,9 +57,7 @@ class AuthWrapper extends ConsumerWidget {
     final _authState = watch(authStateProvider);
     return _authState.when(
       data: (value) {
-        return value != null
-            ? SignIn() //const SplashScreen(routeName: HomeScreen.routeName)
-            : SignIn();
+        return value != null ? HomePage() : SignIn();
       },
       loading: () {
         return const Scaffold(

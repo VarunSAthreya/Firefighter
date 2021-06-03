@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pedantic/pedantic.dart';
 
 import '../components/body_container.dart';
-// import 'home.dart';
+import 'home.dart';
 import 'sign_in.dart';
 
 class VerifyScreen extends StatefulWidget {
@@ -87,7 +87,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
     await _user.reload();
     if (_user.emailVerified) {
       _timer.cancel();
-      //    Navigator.pushReplacementNamed(context, HomePage.routeName);
+      Navigator.pushReplacementNamed(context, HomePage.routeName);
     }
   }
 }

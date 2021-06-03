@@ -9,6 +9,7 @@ import '../services/auth.dart';
 import '../widgets/custom_textfield.dart';
 import 'forgot_password.dart';
 // import 'home.dart';
+import 'home.dart';
 import 'sign_up.dart';
 import 'verify_screen.dart';
 
@@ -42,7 +43,7 @@ class SignIn extends HookWidget {
         );
         if (user != null) {
           if (user.emailVerified) {
-            // Navigator.pushReplacementNamed(context, HomePage.routeName);
+            Navigator.pushReplacementNamed(context, HomePage.routeName);
           } else {
             Navigator.pushReplacementNamed(context, VerifyScreen.routeName);
           }

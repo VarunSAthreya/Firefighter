@@ -37,7 +37,7 @@ class FirebaseAuthProvider extends ChangeNotifier {
     if (userCredential.user != null) {
       switch (userType) {
         case 'Spot Engineer':
-          await DatabaseService.addUsers(
+          await DatabaseService.addUser(
             id: userCredential.user!.uid,
             name: name,
             email: email,
@@ -45,7 +45,7 @@ class FirebaseAuthProvider extends ChangeNotifier {
           );
           break;
         case 'Dashboard Admin':
-          await DatabaseService.addUsers(
+          await DatabaseService.addUser(
             id: userCredential.user!.uid,
             name: name,
             email: email,
@@ -53,7 +53,7 @@ class FirebaseAuthProvider extends ChangeNotifier {
           );
           break;
         case 'End User':
-          await DatabaseService.addUsers(
+          await DatabaseService.addUser(
             id: userCredential.user!.uid,
             name: name,
             email: email,
