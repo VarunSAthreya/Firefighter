@@ -7,7 +7,6 @@ import '../constants.dart';
 import '../models/machine.dart';
 import '../models/request.dart';
 import '../models/spot.dart';
-import '../models/user.dart';
 import '../services/database.dart';
 import '../widgets/custom_appbar.dart';
 
@@ -18,13 +17,11 @@ class RequestDetails extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final _isLoading = useState<bool>(true);
-    final endUser = useState<Users?>(null);
     final machine = useState<Machine?>(null);
     final spot = useState<Spot?>(null);
     final placemarks = useState<List<Placemark>?>(null);
 
     Future<void> getDetails() async {
-      endUser.value = await DatabaseService.getUser(id: request.endUserId);
       machine.value = await DatabaseService.getMachine(id: request.machineId);
       spot.value = await DatabaseService.getSpot(id: request.spotId);
       placemarks.value = await placemarkFromCoordinates(

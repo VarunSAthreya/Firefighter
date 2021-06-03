@@ -76,6 +76,7 @@ class DatabaseService {
       'created_at': Timestamp.now(),
       'is_solved': false,
       'spot_id': spotId,
+      'assigned_to': null,
     });
     await _usersRef.doc(endUserId).update({
       "actions": FieldValue.arrayUnion([id]),
