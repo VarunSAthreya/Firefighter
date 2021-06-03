@@ -57,6 +57,11 @@ class DatabaseService {
     return Users.fromDocumentSnapshot(snapshot);
   }
 
+  static Stream<List<Users>> get engineers => _usersRef
+      .where('type', isEqualTo: 'enginner')
+      .snapshots()
+      .map(Users.fromQuerySnapshot);
+
   //   Request related queries
 
   static Future<void> createRequest({
@@ -91,6 +96,16 @@ class DatabaseService {
   static Future<Request> getRequest({required String id}) async {
     final DocumentSnapshot snapshot = await _requestsRef.doc(id).get();
     return Request.fromDocumentSnapshot(snapshot);
+  }
+
+  static Future<void> assignRequest({
+    required String id,
+    required String uid,
+  }) async {
+    await _requestsRef.doc(id).update({'assigned_to': uid});
+    await _usersRef.doc(uid).update({
+      'actions': FieldValue.arrayUnion([id]),
+    });
   }
 
   static Future<void> updateRequest({

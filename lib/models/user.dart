@@ -26,4 +26,18 @@ class Users {
       actions: data['actions'] as List,
     );
   }
+
+  static List<Users> fromQuerySnapshot(
+    QuerySnapshot snapshot,
+  ) {
+    return snapshot.docs.map((doc) {
+      return Users(
+        id: doc['id'].toString(),
+        name: doc['name'].toString(),
+        email: doc['email'].toString(),
+        type: doc['type'].toString(),
+        actions: doc['actions'] as List,
+      );
+    }).toList();
+  }
 }
