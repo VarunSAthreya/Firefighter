@@ -27,6 +27,9 @@ class DatabaseService {
   static final CollectionReference _spotsRef =
       FirebaseFirestore.instance.collection('spots');
 
+  static final CollectionReference _servicesRef =
+      FirebaseFirestore.instance.collection('services');
+
   // Users realted functions
 
   static Future<void> addUser({
@@ -221,5 +224,40 @@ class DatabaseService {
 
   static Future<void> deletespots({required String id}) async {
     await _spotsRef.doc(id).delete();
+  }
+  //   Service related queries
+
+  static Future<void> createService({
+    required String machineId,
+    required String engineerId,
+    required String spotId,
+    required String beforePic,
+    required String afterPic,
+    required DateTime futureUpdate,
+  }) async {
+    final String id = _uuid.v4();
+    await _servicesRef.doc(id).set({
+      "id": id,
+      "machine_id": machineId,
+      "engineer_id": engineerId,
+      "spot_id": spotId,
+      "before_pic": beforePic,
+      "after_pic": afterPic,
+      "service_date": Timestamp.now(),
+      "end_user_id": false,
+      "is_complete": false,
+    });
+    await _machinesRef.doc(machineId).update({
+      'last_serviced': Timestamp.now(),
+      'future_serviced': futureUpdate,
+    });
+  }
+
+  static Future<void> updateServices({
+    required String id,
+    required String key,
+    required dynamic value,
+  }) async {
+    await _servicesRef.doc(id).update({key: value});
   }
 }

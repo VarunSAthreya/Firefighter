@@ -8,6 +8,8 @@ class Services {
   final DateTime serviceDate;
   final bool endUserApproved;
   final bool isComplete;
+  final String beforePic;
+  final String afterPic;
 
   Services({
     required this.id,
@@ -17,6 +19,8 @@ class Services {
     required this.serviceDate,
     required this.endUserApproved,
     required this.isComplete,
+    required this.beforePic,
+    required this.afterPic,
   });
 
   factory Services.fromDocumentSnapshot(DocumentSnapshot snapshot) {
@@ -30,6 +34,8 @@ class Services {
       serviceDate: DateTime.parse(data['service_date'].toDate().toString()),
       endUserApproved: data['end_user_id'] as bool,
       isComplete: data['is_complete'] as bool,
+      beforePic: data['before_pic'].toString(),
+      afterPic: data['after_pic'].toString(),
     );
   }
 
@@ -45,6 +51,8 @@ class Services {
         serviceDate: DateTime.parse(doc['service_date'].toDate().toString()),
         endUserApproved: doc['end_user_id'] as bool,
         isComplete: doc['is_complete'] as bool,
+        beforePic: doc['before_pic'].toString(),
+        afterPic: doc['after_pic'].toString(),
       );
     }).toList();
   }

@@ -37,7 +37,7 @@ dependencies:
   geolocator: ^7.0.3
   google_maps_flutter: ^2.0.6
   hooks_riverpod: ^0.14.0+4
-  image_picker: ^0.8.0
+  image_picker: ^0.8.0+1
   intl: ^0.17.0
   riverpod: ^0.14.0+3
   shimmer: ^2.0.0
