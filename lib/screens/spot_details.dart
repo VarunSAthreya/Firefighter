@@ -1,5 +1,6 @@
 import 'package:firefighter/models/machine.dart';
 import 'package:firefighter/models/spot.dart';
+import 'package:firefighter/screens/machine_details.dart';
 import 'package:firefighter/services/database.dart';
 import 'package:firefighter/widgets/custom_appbar.dart';
 import 'package:firefighter/widgets/error_message.dart';
@@ -113,7 +114,10 @@ class SpotDetails extends HookWidget {
                                   itemBuilder: (context, index) {
                                     final Machine machine =
                                         snapshot.data[index] as Machine;
-                                    return MachineCard(machine: machine);
+                                    return MachineCard(
+                                      machine: machine,
+                                      spot: spot,
+                                    );
                                   },
                                   itemCount: snapshot.data.length as int,
                                 );
@@ -145,14 +149,24 @@ class MachineCard extends StatelessWidget {
   const MachineCard({
     Key? key,
     required this.machine,
+    required this.spot,
   }) : super(key: key);
 
   final Machine machine;
+  final Spot spot;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute<MachineDetails>(
+          builder: (context) => MachineDetails(
+            machine: machine,
+            spot: spot,
+          ),
+        ),
+      ),
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).backgroundColor,
