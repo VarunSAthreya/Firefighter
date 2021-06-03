@@ -1,9 +1,9 @@
-import 'package:firefighter/models/machine.dart';
-import 'package:firefighter/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
+import '../models/machine.dart';
+import '../services/database.dart';
 import 'machine_details.dart';
 
 class QRScanPage extends StatefulWidget {
@@ -25,25 +25,21 @@ class _QRScanPageState extends State<QRScanPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const Text(
-                'Scan Result',
+                'Scan For Indetifying Machines',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                qrCode,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 72),
+              const SizedBox(height: 80),
               ElevatedButton(
                 onPressed: () => scanQRCode(),
-                child: const Text('Start QR scan'),
+                style: ElevatedButton.styleFrom(
+                    primary: Theme.of(context).accentColor),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Scan QR Code"),
+                ),
               ),
             ],
           ),
