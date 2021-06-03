@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../screens/home.dart';
+import '../screens/maps.dart';
 
 class CustomDrawer extends StatelessWidget {
   @override
@@ -24,10 +25,15 @@ class CustomDrawer extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, HomePage.routeName),
             ),
             _DrawerTile(
-              title: 'Add Machine',
+              title: 'Add Spot',
               iconData: FontAwesomeIcons.plus,
               onTap: () =>
                   Navigator.pushReplacementNamed(context, HomePage.routeName),
+            ),
+            _DrawerTile(
+              title: 'Add Machine',
+              iconData: FontAwesomeIcons.plus,
+              onTap: () => Navigator.pushNamed(context, MapsLocation.routeName),
             ),
           ],
         ),

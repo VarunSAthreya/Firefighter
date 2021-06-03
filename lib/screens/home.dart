@@ -1,10 +1,11 @@
-import 'package:firefighter/components/request_card.dart';
-import 'package:firefighter/models/request.dart';
-import 'package:firefighter/services/database.dart';
-import 'package:firefighter/widgets/custom_appbar.dart';
-import 'package:firefighter/widgets/custom_drawer.dart';
-import 'package:firefighter/widgets/error_message.dart';
 import 'package:flutter/material.dart';
+
+import '../components/request_card.dart';
+import '../models/request.dart';
+import '../services/database.dart';
+import '../widgets/custom_appbar.dart';
+import '../widgets/custom_drawer.dart';
+import '../widgets/error_message.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = '/home';
