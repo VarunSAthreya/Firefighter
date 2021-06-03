@@ -1,5 +1,5 @@
 import 'package:firefighter/models/spot.dart';
-import 'package:firefighter/screens/home.dart';
+import 'package:firefighter/screens/show_barcode.dart';
 import 'package:firefighter/services/database.dart';
 import 'package:firefighter/widgets/custom_dropdown.dart';
 import 'package:firefighter/widgets/custom_textfield.dart';
@@ -167,13 +167,20 @@ class AddMachine extends HookWidget {
               _type.value != 'Machine Type' &&
               _spotId.value != '') {
             try {
-              await DatabaseService.createMachines(
+              String id = await DatabaseService.createMachines(
                 name: _nameController.text.trim(),
                 address: _addressController.text.trim(),
                 type: _type.value,
                 spotId: _spotId.value,
               );
-              Navigator.pushReplacementNamed(context, HomePage.routeName);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute<ShowBarcode>(
+                  builder: (context) => ShowBarcode(
+                    data: id,
+                  ),
+                ),
+              );
             } catch (e) {
               debugPrint(e.toString());
             }

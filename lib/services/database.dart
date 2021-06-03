@@ -110,7 +110,7 @@ class DatabaseService {
 
   //   Machines related queries
 
-  static Future<void> createMachines({
+  static Future<String> createMachines({
     required String name,
     required String address,
     required String type,
@@ -130,6 +130,7 @@ class DatabaseService {
     await _spotsRef.doc(spotId).update({
       'machine_id': FieldValue.arrayUnion([id]),
     });
+    return id;
   }
 
   static Stream<List<Machine>> get allMachines =>
