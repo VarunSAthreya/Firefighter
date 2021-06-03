@@ -5,6 +5,7 @@ class Machine {
   final String address;
   final String endUserId;
   final String type;
+  final String spotId;
   final List services;
   final DateTime? lastServiced;
   final DateTime? futureService;
@@ -14,6 +15,7 @@ class Machine {
     required this.address,
     required this.endUserId,
     required this.type,
+    required this.spotId,
     required this.services,
     required this.lastServiced,
     required this.futureService,
@@ -28,6 +30,7 @@ class Machine {
       endUserId: data['end_user_id'].toString(),
       type: data['type'].toString(),
       services: data['services'] as List,
+      spotId: data['spot_id'].toString(),
       lastServiced: data['last_serviced'] == null
           ? null
           : DateTime.parse(data['last_serviced'].toDate().toString()),
@@ -46,6 +49,7 @@ class Machine {
         endUserId: doc['end_user_id'].toString(),
         type: doc['type'].toString(),
         services: doc['services'] as List,
+        spotId: doc['spot_id'].toString(),
         lastServiced: doc['last_serviced'] == null
             ? null
             : DateTime.parse(doc['last_serviced'].toDate().toString()),

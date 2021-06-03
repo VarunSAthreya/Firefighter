@@ -1,4 +1,5 @@
 import 'package:firefighter/models/machine.dart';
+import 'package:firefighter/models/spot.dart';
 import 'package:firefighter/models/user.dart';
 import 'package:firefighter/services/database.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class RequestDetails extends HookWidget {
     final _isLoading = useState<bool>(true);
     late final Users endUser;
     late final Machine machine;
-    late final Machine spot;
+    late final Spot spot;
 
     Future<void> getDetails() async {
       endUser = await DatabaseService.getUser(id: request.endUserId);
