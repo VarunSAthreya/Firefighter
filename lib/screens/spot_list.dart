@@ -1,4 +1,6 @@
+import 'package:firefighter/screens/add_spot.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../models/spot.dart';
 import '../services/database.dart';
@@ -15,10 +17,18 @@ class SpotList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(60),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
         child: CustomAppBar(
           title: 'Spot List',
+          actions: [
+            IconButton(
+              onPressed: () => Navigator.pushNamed(context, AddSpot.routeName),
+              icon: const Icon(
+                FontAwesomeIcons.plus,
+              ),
+            )
+          ],
         ),
       ),
       drawer: CustomDrawer(),

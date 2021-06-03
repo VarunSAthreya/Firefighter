@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../components/request_card.dart';
 import '../models/request.dart';
@@ -6,6 +7,7 @@ import '../services/database.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/error_message.dart';
+import 'add_request.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = '/home';
@@ -14,10 +16,19 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(60),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60),
         child: CustomAppBar(
           title: 'Home',
+          actions: [
+            IconButton(
+              onPressed: () =>
+                  Navigator.pushNamed(context, AddRequest.routeName),
+              icon: const Icon(
+                FontAwesomeIcons.plus,
+              ),
+            )
+          ],
         ),
       ),
       drawer: CustomDrawer(),

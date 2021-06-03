@@ -1,16 +1,19 @@
 import 'package:firefighter/screens/scan_qr.dart';
+import 'package:firefighter/screens/sign_in.dart';
+import 'package:firefighter/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../screens/add_machine.dart';
-import '../screens/add_request.dart';
-import '../screens/add_spot.dart';
 import '../screens/home.dart';
 import '../screens/spot_list.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    final _auth = useProvider(authProvider);
     return Drawer(
       child: Container(
         color: Theme.of(context).backgroundColor,
@@ -29,10 +32,9 @@ class CustomDrawer extends StatelessWidget {
                   Navigator.pushReplacementNamed(context, HomePage.routeName),
             ),
             _DrawerTile(
-              title: 'Add Spot',
-              iconData: FontAwesomeIcons.plus,
-              onTap: () =>
-                  Navigator.pushReplacementNamed(context, AddSpot.routeName),
+              title: 'All Spots',
+              iconData: FontAwesomeIcons.locationArrow,
+              onTap: () => Navigator.pushNamed(context, SpotList.routeName),
             ),
             _DrawerTile(
               title: 'Add Machine',
@@ -40,19 +42,17 @@ class CustomDrawer extends StatelessWidget {
               onTap: () => Navigator.pushNamed(context, AddMachine.routeName),
             ),
             _DrawerTile(
-              title: 'Add Request',
-              iconData: FontAwesomeIcons.plus,
-              onTap: () => Navigator.pushNamed(context, AddRequest.routeName),
-            ),
-            _DrawerTile(
-              title: 'All Spots',
-              iconData: FontAwesomeIcons.locationArrow,
-              onTap: () => Navigator.pushNamed(context, SpotList.routeName),
-            ),
-            _DrawerTile(
               title: 'Scan QR',
               iconData: FontAwesomeIcons.qrcode,
               onTap: () => Navigator.pushNamed(context, QRScanPage.routeName),
+            ),
+            _DrawerTile(
+              title: 'Log Out',
+              iconData: FontAwesomeIcons.signOutAlt,
+              onTap: () {
+                _auth.signOut();
+                Navigator.pushReplacementNamed(context, SignIn.routeName);
+              },
             ),
           ],
         ),
