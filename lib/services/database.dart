@@ -111,19 +111,24 @@ class DatabaseService {
   //   Machines related queries
 
   static Future<void> createMachines({
+    required String name,
     required String address,
-    required String endUserId,
     required String type,
+    required String spotId,
   }) async {
     final String id = _uuid.v4();
     await _machinesRef.doc(id).set({
       "id": id,
+      "name": name,
       "address": address,
-      "end_user_id": endUserId,
+      "spot_id": spotId,
       "type": type,
       "services": <String>[],
       'last_serviced': null,
       'future_serviced': null,
+    });
+    await _spotsRef.doc(spotId).update({
+      'machine_id': FieldValue.arrayUnion([id]),
     });
   }
 

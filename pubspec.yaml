@@ -23,12 +23,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  barcode_widget: ^2.0.1
   cached_network_image: ^3.0.0
   cloud_firestore: ^2.2.0
   cupertino_icons: ^1.0.2
   firebase_auth: ^1.2.0
   firebase_core: ^1.2.0
   firebase_storage: ^8.1.0
+  flutter_barcode_scanner: ^2.0.0
   flutter_hooks: ^0.17.0
   font_awesome_flutter: ^9.0.0
   geocoding: ^2.0.0

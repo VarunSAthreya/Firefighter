@@ -1,3 +1,4 @@
+import 'package:firefighter/screens/add_machine.dart';
 import 'package:firefighter/screens/add_spot.dart';
 import 'package:flutter/material.dart';
 
@@ -14,4 +15,5 @@ final Map<String, WidgetBuilder> routes = {
   ForgotPassword.routeName: (context) => ForgotPassword(),
   HomePage.routeName: (context) => HomePage(),
   AddSpot.routeName: (context) => AddSpot(),
+  AddMachine.routeName: (context) => AddMachine(),
 };

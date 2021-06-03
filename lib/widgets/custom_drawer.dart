@@ -1,3 +1,4 @@
+import 'package:firefighter/screens/add_machine.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -33,7 +34,7 @@ class CustomDrawer extends StatelessWidget {
             _DrawerTile(
               title: 'Add Machine',
               iconData: FontAwesomeIcons.plus,
-              onTap: () => Navigator.pushNamed(context, HomePage.routeName),
+              onTap: () => Navigator.pushNamed(context, AddMachine.routeName),
             ),
           ],
         ),

@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Machine {
   final String id;
+  final String name;
   final String address;
-  final String endUserId;
   final String type;
   final String spotId;
   final List services;
@@ -12,8 +12,8 @@ class Machine {
 
   Machine({
     required this.id,
+    required this.name,
     required this.address,
-    required this.endUserId,
     required this.type,
     required this.spotId,
     required this.services,
@@ -26,8 +26,8 @@ class Machine {
 
     return Machine(
       id: data['id'].toString(),
+      name: data['name'].toString(),
       address: data['address'].toString(),
-      endUserId: data['end_user_id'].toString(),
       type: data['type'].toString(),
       services: data['services'] as List,
       spotId: data['spot_id'].toString(),
@@ -45,8 +45,8 @@ class Machine {
     return snapshot.docs.map((doc) {
       return Machine(
         id: doc['id'].toString(),
+        name: doc['name'].toString(),
         address: doc['address'].toString(),
-        endUserId: doc['end_user_id'].toString(),
         type: doc['type'].toString(),
         services: doc['services'] as List,
         spotId: doc['spot_id'].toString(),
