@@ -117,7 +117,6 @@ class SpotDetails extends HookWidget {
                                         snapshot.data[index] as Machine;
                                     return MachineCard(
                                       machine: machine,
-                                      spot: spot,
                                     );
                                   },
                                   itemCount: snapshot.data.length as int,
@@ -150,11 +149,9 @@ class MachineCard extends StatelessWidget {
   const MachineCard({
     Key? key,
     required this.machine,
-    required this.spot,
   }) : super(key: key);
 
   final Machine machine;
-  final Spot spot;
 
   @override
   Widget build(BuildContext context) {
@@ -164,7 +161,6 @@ class MachineCard extends StatelessWidget {
         MaterialPageRoute<MachineDetails>(
           builder: (context) => MachineDetails(
             machine: machine,
-            spot: spot,
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:firefighter/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,16 +11,24 @@ import 'create_qr.dart';
 
 class MachineDetails extends HookWidget {
   final Machine machine;
-  final Spot spot;
   const MachineDetails({
     Key? key,
     required this.machine,
-    required this.spot,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _isLoading = useState(false);
+    final _isLoading = useState(true);
+    final spot = useState<Spot?>(null);
+
+    Future<void> getSpot() async {
+      spot.value = await DatabaseService.getSpot(id: machine.spotId);
+      _isLoading.value = false;
+    }
+
+    useEffect(() {
+      getSpot();
+    }, []);
 
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
@@ -66,7 +75,7 @@ class MachineDetails extends HookWidget {
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        'Spot: ${spot.name}',
+                        'Spot: ${spot.value!.name}',
                         softWrap: true,
                         textScaleFactor: 1.2,
                       ),
