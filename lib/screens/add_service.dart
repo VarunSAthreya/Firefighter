@@ -74,7 +74,7 @@ class AddService extends HookWidget {
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: CustomAppBar(
-          title: 'Service Machine',
+          title: 'Service Asset',
         ),
       ),
       drawer: CustomDrawer(),

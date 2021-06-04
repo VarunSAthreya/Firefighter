@@ -41,7 +41,7 @@ class SpotDetails extends HookWidget {
             ),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: 'Spot',
+          title: 'Site',
         ),
       ),
       body: Padding(
@@ -74,7 +74,7 @@ class SpotDetails extends HookWidget {
                       ),
                       const SizedBox(height: 20),
                       Text(
-                        'Number of Machines ${spot.machineId.length}',
+                        'Number of Assets ${spot.machineId.length}',
                         softWrap: true,
                         textScaleFactor: 1.2,
                       ),
@@ -86,7 +86,7 @@ class SpotDetails extends HookWidget {
                       ),
                       const SizedBox(height: 20),
                       const Text(
-                        "List of Machines",
+                        "List of Assets",
                         textScaleFactor: 1.4,
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),

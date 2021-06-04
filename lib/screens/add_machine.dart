@@ -26,7 +26,7 @@ class AddMachine extends HookWidget {
     final _addressErrorMessage = useState<String>('');
     final _validityAddress = useState<bool>(true);
 
-    final _type = useState<String>('Machine Type');
+    final _type = useState<String>('Asset Type');
 
     final _spotId = useState<String>('');
 
@@ -57,7 +57,7 @@ class AddMachine extends HookWidget {
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: CustomAppBar(
-          title: 'Add Machine',
+          title: 'Add Asset',
         ),
       ),
       drawer: CustomDrawer(),
@@ -94,7 +94,7 @@ class AddMachine extends HookWidget {
               ),
               const SizedBox(height: 20),
               const Text(
-                "List of Spots",
+                "List of Sites",
                 textScaleFactor: 1.4,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
@@ -144,7 +144,7 @@ class AddMachine extends HookWidget {
                       } else {
                         return const Center(
                           child: ErrorMessage(
-                            message: 'No request available',
+                            message: 'No Site available',
                           ),
                         );
                       }
@@ -164,10 +164,10 @@ class AddMachine extends HookWidget {
         onPressed: () async {
           if (_isValidName(_nameController.text.trim()) &&
               _isValidAddress(_addressController.text.trim()) &&
-              _type.value != 'Machine Type' &&
+              _type.value != 'Asset Type' &&
               _spotId.value != '') {
             try {
-              String id = await DatabaseService.createMachines(
+              final String id = await DatabaseService.createMachines(
                 name: _nameController.text.trim(),
                 address: _addressController.text.trim(),
                 type: _type.value,

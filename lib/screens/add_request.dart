@@ -56,7 +56,7 @@ class AddRequest extends HookWidget {
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: CustomAppBar(
-          title: 'Add Request',
+          title: 'Add Report',
         ),
       ),
       drawer: CustomDrawer(),
@@ -84,7 +84,7 @@ class AddRequest extends HookWidget {
               ),
               const SizedBox(height: 20),
               const Text(
-                "List of Spots",
+                "List of Sites",
                 textScaleFactor: 1.4,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
@@ -134,7 +134,7 @@ class AddRequest extends HookWidget {
                       } else {
                         return const Center(
                           child: ErrorMessage(
-                            message: 'No request available',
+                            message: 'No Site available',
                           ),
                         );
                       }
@@ -149,7 +149,7 @@ class AddRequest extends HookWidget {
               if (_spotId.value != '') ...[
                 const SizedBox(height: 20),
                 const Text(
-                  "List of Machines",
+                  "List of Assets",
                   textScaleFactor: 1.4,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
@@ -200,7 +200,7 @@ class AddRequest extends HookWidget {
                         } else {
                           return const Center(
                             child: ErrorMessage(
-                              message: 'No request available',
+                              message: 'No asset available',
                             ),
                           );
                         }
@@ -240,7 +240,7 @@ class AddRequest extends HookWidget {
         style: ElevatedButton.styleFrom(primary: Theme.of(context).accentColor),
         child: const Padding(
           padding: EdgeInsets.all(16.0),
-          child: Text("Add Request"),
+          child: Text("Add Report"),
         ),
       ),
     );

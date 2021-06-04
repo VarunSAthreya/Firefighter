@@ -20,7 +20,7 @@ class SpotList extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: CustomAppBar(
-          title: 'Spot List',
+          title: 'Site List',
           actions: [
             IconButton(
               onPressed: () => Navigator.pushNamed(context, AddSpot.routeName),

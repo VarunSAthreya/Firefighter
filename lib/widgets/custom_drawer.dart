@@ -28,19 +28,19 @@ class CustomDrawer extends HookWidget {
             _header(context),
             const SizedBox(height: 30),
             _DrawerTile(
-              title: 'Home',
-              iconData: FontAwesomeIcons.home,
+              title: 'Reports',
+              iconData: FontAwesomeIcons.clipboardCheck,
               onTap: () =>
                   Navigator.pushReplacementNamed(context, HomePage.routeName),
             ),
             if (_user.type != 'user') ...[
               _DrawerTile(
-                title: 'All Spots',
+                title: 'Sites',
                 iconData: FontAwesomeIcons.locationArrow,
                 onTap: () => Navigator.pushNamed(context, SpotList.routeName),
               ),
               _DrawerTile(
-                title: 'Add Machine',
+                title: 'Add Asset',
                 iconData: FontAwesomeIcons.plus,
                 onTap: () => Navigator.pushNamed(context, AddMachine.routeName),
               ),

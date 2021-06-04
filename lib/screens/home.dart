@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: CustomAppBar(
-          title: 'Home',
+          title: 'Reports',
           actions: [
             IconButton(
               onPressed: () =>
