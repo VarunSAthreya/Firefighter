@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../constants.dart';
 import '../models/machine.dart';
 import '../models/request.dart';
 import '../models/spot.dart';
 import '../models/user.dart';
+import '../providers/user_provider.dart';
 import '../services/database.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/error_message.dart';
@@ -27,6 +29,8 @@ class RequestDetails extends HookWidget {
 
     final _isAssigning = useState<bool>(false);
     final _engineerId = useState<String>('');
+
+    final _user = useProvider(userProvider);
 
     Future<void> getDetails() async {
       machine.value = await DatabaseService.getMachine(id: request.machineId);
@@ -159,7 +163,8 @@ class RequestDetails extends HookWidget {
                         ),
                       ],
                       if (request.assignedTo == null &&
-                          !_isAssigning.value) ...[
+                          !_isAssigning.value &&
+                          _user.type == 'admin') ...[
                         const SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () => _isAssigning.value = true,
@@ -264,7 +269,7 @@ class RequestDetails extends HookWidget {
                           ),
                         ),
                       ],
-                      if (!request.isSolved) ...[
+                      if (!request.isSolved && _user.type == 'engineer') ...[
                         const SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () async {
@@ -286,7 +291,23 @@ class RequestDetails extends HookWidget {
                             child: Text("Work Done?!"),
                           ),
                         ),
-                      ]
+                      ],
+                      IconButton(
+                          onPressed: () async {
+                            try {
+                              await DatabaseService.deleteRequest(
+                                  id: request.id, uid: _user.id);
+                            } catch (e) {
+                              print(e);
+                            } finally {
+                              Navigator.pushReplacementNamed(
+                                  context, HomePage.routeName);
+                            }
+                          },
+                          icon: Icon(
+                            FontAwesomeIcons.trash,
+                            color: Theme.of(context).accentColor,
+                          ))
                     ],
                   ),
                 ),

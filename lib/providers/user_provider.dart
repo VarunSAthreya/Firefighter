@@ -39,5 +39,7 @@ class UserProvider extends ChangeNotifier {
 
   String get id => FirebaseAuth.instance.currentUser!.uid;
 
+  String get type => _users.type;
+
   Users get user => _users;
 }

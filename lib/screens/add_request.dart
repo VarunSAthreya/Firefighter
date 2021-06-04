@@ -240,7 +240,7 @@ class AddRequest extends HookWidget {
         style: ElevatedButton.styleFrom(primary: Theme.of(context).accentColor),
         child: const Padding(
           padding: EdgeInsets.all(16.0),
-          child: Text("Add Machine"),
+          child: Text("Add Request"),
         ),
       ),
     );

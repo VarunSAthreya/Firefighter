@@ -1,3 +1,4 @@
+import 'package:firefighter/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -11,6 +12,7 @@ import 'add_request.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = '/home';
+  final user = UserProvider().loadUser();
 
   @override
   Widget build(BuildContext context) {
