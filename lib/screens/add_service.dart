@@ -1,18 +1,19 @@
 import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firefighter/constants.dart';
-import 'package:firefighter/models/machine.dart';
-import 'package:firefighter/providers/image_provider.dart';
-import 'package:firefighter/screens/home.dart';
-import 'package:firefighter/services/database.dart';
-import 'package:firefighter/services/storage.dart';
-import 'package:firefighter/widgets/custom_appbar.dart';
-import 'package:firefighter/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../constants.dart';
+import '../models/machine.dart';
+import '../providers/image_provider.dart';
+import '../screens/home.dart';
+import '../services/database.dart';
+import '../services/storage.dart';
+import '../widgets/custom_appbar.dart';
+import '../widgets/custom_drawer.dart';
 
 class AddService extends HookWidget {
   final Machine machine;
@@ -118,7 +119,7 @@ class AddService extends HookWidget {
                           textScaleFactor: 1.2,
                         ),
                         const SizedBox(height: 20),
-                        const InputText(title: 'Poster'),
+                        const InputText(title: 'Service Image'),
                         ListTile(
                           title: const Text('Before service'),
                           trailing: const Icon(FontAwesomeIcons.chevronDown),
@@ -130,7 +131,7 @@ class AddService extends HookWidget {
                           onTap: () => _pickImage2(),
                         ),
                         const SizedBox(height: 20),
-                        const InputText(title: 'Products Date'),
+                        const InputText(title: 'Expected Next Service Date'),
                         ListTile(
                           title: Text(choosenDate.value),
                           trailing: const Icon(FontAwesomeIcons.chevronDown),
