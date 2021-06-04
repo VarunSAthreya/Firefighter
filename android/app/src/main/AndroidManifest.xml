@@ -7,7 +7,7 @@
         android:label="firefighter"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyBoGZnGXwH0BqtubISeXPz9EWpfLkLH-QQ"/>
+               android:value="YOUR-API-KEY"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
