@@ -43,7 +43,7 @@ class MachineDetails extends HookWidget {
             ),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: 'Machine',
+          title: 'Asset',
         ),
       ),
       body: Padding(
