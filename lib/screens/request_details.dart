@@ -298,7 +298,7 @@ class RequestDetails extends HookWidget {
                               await DatabaseService.deleteRequest(
                                   id: request.id, uid: _user.id);
                             } catch (e) {
-                              print(e);
+                              debugPrint(e.toString());
                             } finally {
                               Navigator.pushReplacementNamed(
                                   context, HomePage.routeName);

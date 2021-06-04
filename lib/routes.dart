@@ -18,8 +18,8 @@ final Map<String, WidgetBuilder> routes = {
   ForgotPassword.routeName: (context) => ForgotPassword(),
   HomePage.routeName: (context) => HomePage(),
   AddSpot.routeName: (context) => AddSpot(),
-  AddMachine.routeName: (context) => AddMachine(),
-  AddRequest.routeName: (context) => AddRequest(),
-  SpotList.routeName: (context) => SpotList(),
+  AddMachine.routeName: (context) => const AddMachine(),
+  AddRequest.routeName: (context) => const AddRequest(),
+  SpotList.routeName: (context) => const SpotList(),
   QRScanPage.routeName: (context) => QRScanPage(),
 };

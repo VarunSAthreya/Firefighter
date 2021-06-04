@@ -22,16 +22,14 @@ class _MapsLocationState extends State<MapsLocation> {
 
   @override
   void initState() {
-    Geolocator.getCurrentPosition(
-            desiredAccuracy: LocationAccuracy.best,
-            forceAndroidLocationManager: true)
+    Geolocator.getCurrentPosition(forceAndroidLocationManager: true)
         .then((Position position) {
       setState(() {
-        print('GOTT LOCATION!!!');
+        debugPrint('GOTT LOCATION!!!');
         _currentLatLng = LatLng(position.latitude, position.longitude);
       });
     }).catchError((e) {
-      print(e);
+      debugPrint(e.toString());
       setState(() {
         _currentLatLng = const LatLng(19.018255973653343, 72.84793849278007);
       });
