@@ -13,15 +13,19 @@ This project was selected as one of the top 10 projects of the hackathon.
 # App Demo
 
 -   Adding a `site` for asset management
+
     <img src="./assets/demo/add_site.gif" alt="Demo video" height="20%" width="20%"/>
 
 -   Adding a `asset` for service and management.
+
     <img src="./assets/demo/add_asset.gif" alt="Demo video" height="20%" width="20%"/>
 
 -   Scanning auto generated QR code for all `asset` and to start and finish servicing it.
+
     <img src="./assets/demo/scanning_qr_and_servicing.gif" alt="Demo video" height="20%" width="20%"/>
 
 -   Adding a `report` for an `asset` in a `site` and assigning a `site engineer` to it.
+
     <img src="./assets/demo/add_report.gif" alt="Demo video" height="20%" width="20%"/>
 
 # Technology Stack
