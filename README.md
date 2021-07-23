@@ -37,3 +37,11 @@ This project was selected as one of the top 10 projects of the hackathon.
 # Getting Started
 
 A complete guide for getting started is given **[here](https://github.com/VarunSAthreya/Firefighter/blob/main/CONTRIBUTING.md)**.
+
+# Features Implemented
+
+-   `Email` authentication.
+-   Three user types: `Admin`, `Site Engineer`, `End User`. All integrated in the same app.
+-   Specific features only available for specific type of user.
+-   Integrated `Google Maps API` for `site's` location.
+-   CRUD operations of `site`, `asset`, ans `report`.
