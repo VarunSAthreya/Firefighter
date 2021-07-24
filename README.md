@@ -1,6 +1,6 @@
 # Firefighter Inventory App
 
-Firefighter inventory management and service app created for the hackathon [Hackwell2.0](https://www.jsshackwell.in/). Which was a 48 hour hackathon organized by [JSSATEB](https://www.jssateb.ac.in/) and [Honeywell India](https://www.honeywell.com/in/en).
+Firefighter inventory management and service app created for the hackathon [Hackwell2.0](https://www.jsshackwell.in/). Which was a 48 hour hackathon organized by [JSSATEB](https://www.jssateb.ac.in/) and [Honeywell India](https://www.honeywell.com/in/en), conducted on <code>2<sup>nd</sup> June 2021</code> to <code>4<sup>th</sup> June 2021</code>.
 This project was selected as one of the top 10 projects of the hackathon.
 
 # Problem Statement
