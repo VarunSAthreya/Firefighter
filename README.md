@@ -34,6 +34,8 @@ This project was selected as one of the top 10 projects of the hackathon.
 -   State management: [RiverPod](https://pub.dev/packages/riverpod) and [FlutterHooks](https://pub.dev/packages/flutter_hooks).
 -   Backend: [Firebase](https://firebase.google.com/)
 -   Database: [Cloud Firestore](https://firebase.google.com/docs/firestore)
+-   Storage: [Firebase Cloud Storage](https://firebase.google.com/products/storage)
+-   Location: [Google Maps](https://developers.google.com/maps)
 
 # Getting Started
 
@@ -46,3 +48,4 @@ A complete guide for getting started is given **[here](https://github.com/VarunS
 -   Specific features only available for specific type of user.
 -   Integrated `Google Maps API` for `site's` location.
 -   CRUD operations of `site`, `asset`, ans `report`.
+-   Implemeted `serice` feature to `asset` by uploading before and after `image` of the asset.
