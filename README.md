@@ -33,6 +33,7 @@ This project was selected as one of the top 10 projects of the hackathon.
 -   Frontend: [Flutter](https://flutter.dev/)(with sound null safety).
 -   State management: [RiverPod](https://pub.dev/packages/riverpod) and [FlutterHooks](https://pub.dev/packages/flutter_hooks).
 -   Backend: [Firebase](https://firebase.google.com/)
+-   Database: [Cloud Firestore](https://firebase.google.com/docs/firestore)
 
 # Getting Started
 
