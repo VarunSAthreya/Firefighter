@@ -1,7 +1,8 @@
-# Firefighter Inventory App
+# [Firefighter](https://github.com/VarunSAthreya/Firefighter/releases/download/release/firefighter.apk)
 
 Firefighter inventory management and service app created for the hackathon [Hackwell2.0](https://www.jsshackwell.in/). Which was a 48 hour hackathon organized by [JSSATEB](https://www.jssateb.ac.in/) and [Honeywell India](https://www.honeywell.com/in/en), conducted on <code>2<sup>nd</sup> June 2021</code> to <code>4<sup>th</sup> June 2021</code>.
 This project was selected as one of the [top 10 projects](https://www.linkedin.com/posts/varunsathreya_certificate-activity-6809581904493465600-Jq3l/) of the hackathon (One of the only 2 solo participants in top 10 teams).
+Head to the [release](https://github.com/VarunSAthreya/Firefighter/releases/tag/release) section to download the [app](https://github.com/VarunSAthreya/Firefighter/releases/download/release/firefighter.apk).
 
 # Problem Statement
 
